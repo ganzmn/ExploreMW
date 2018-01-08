@@ -1,0 +1,33 @@
+﻿@model ExploreMidwest.Model.Page
+
+@{
+    ViewBag.Title = "EditPage";
+}
+
+<h2>EditPage</h2>
+
+<div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Page Title</label>
+                @Html.TextBoxFor(p => p.Title, new { @class = "form-control", placeholder = "Enter Page Title" })
+                @Html.ValidationMessageFor(b => b.Title)
+                <br />
+
+                <label>Page Content</label>
+                @Html.TextAreaFor(p => p.Body, new { @class = "form-control", id = "textarea" })
+                @Html.ValidationMessageFor(b => b.Body)<br />
+
+                <button class="btn btn-md btn-danger">Cancel</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-md btn-primary">Save</button>&nbsp;&nbsp;
+                <br /><br />
+                @Html.CheckBoxFor(p => p.IsFinished, new { @id = "finished" }) &nbsp;Publish <br />
+                @Html.CheckBoxFor(p => p.IsInNavigation, new { @id = "navigation" }) &nbsp;Display in navigation menu
+                @Html.HiddenFor(p => p.PageId)
+                @Html.HiddenFor(p => p.Url)
+            </div>
+        }
+    </div>
+</div>

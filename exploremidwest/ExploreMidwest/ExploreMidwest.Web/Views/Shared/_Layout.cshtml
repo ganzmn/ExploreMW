@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body style="background-color:azure">
+    @*navigation bar*@
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="http://localhost:8080/">
+                    <img src="~/images/EMWLogo.PNG" width="200" height="100">
+                </a>
+                @*<a class="navbar-brand" href="#">Explore Midwest</a>*@
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Pages
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" id="staticpages"></ul>
+                </li>
+                @if (User.IsInRole("admin"))
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Site Management
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="management">
+                            <li>
+                                @Html.ActionLink("Add Blog", "AddBlog", "Manager")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Pending Blog Posts", "PendingPosts", "Admin")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Add Page", "AddPage", "Admin")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Page Manager", "SavedPages", "Admin")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Add Manager", "AddManager", "Admin")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Remove Manager", "DeleteManager", "Admin")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Change Password", "ChangePassword", "Manager")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Logout", "Logout", "Home")
+                            </li>
+                        </ul>
+                    </li>
+                }
+                else if (User.IsInRole("Manager"))
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Blog Management
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="management">
+                            <li>
+                                @Html.ActionLink("Add Blog", "AddBlog", "Manager")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Saved Blogs", "SavedBlogs", "Manager")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Change Password", "ChangePassword", "Manager")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Logout", "Logout", "Home")
+                            </li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @Html.ActionLink("Login", "Login")
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid body-content">
+        @RenderBody()
+
+    </div>
+    <hr />
+    <footer style="text-align:center">
+        <p>&copy; @DateTime.Now.Year - Explore Midwest&nbsp;&nbsp;|&nbsp;&nbsp;<span class="glyphicon glyphicon-home"></span>&nbsp; 
+        1234 Main Street, Minneapolis, MN&nbsp;&nbsp;|&nbsp;&nbsp;<span class="glyphicon glyphicon-phone"></span>&nbsp;612.123.4567</p>
+    </footer>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: '#textarea' });</script>
+    <script src="~/Scripts/home.js"></script>
+</body>
+</html>

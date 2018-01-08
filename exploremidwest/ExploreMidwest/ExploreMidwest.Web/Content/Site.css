@@ -1,0 +1,98 @@
+﻿body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+p,h1,h2,h3,h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.titleDiv {
+    height: 80px;
+    white-space:normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.divMain {
+    padding: 4px 4px 4px 4px;
+}
+
+.divTop {
+
+    height: 50px;
+}
+
+.innerDiv {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 70%;
+    white-space:inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pgBody {
+    max-width: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.blogDiv {
+    border: solid;
+    border-color: azure;
+    margin-bottom: 4px;
+    background-color: white;
+    height: 175px;
+}
+
+.detailDiv {
+    border:solid;
+    border-color: azure;
+    background-color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select
+ {
+    /*max-width: 280px;*/
+}
+
+#hd {
+    height: 20px;
+    font-size: 14pt;
+}
+
+#txtContent {
+    width: 70%;
+    height: 350px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-image: url(bg.gif);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+#upload-button {
+    float: left;
+    margin : 10px;
+    border : 5px;
+   
+   
+}
+
+#submit-button, #cancel-button {
+    float: left;
+    margin: 10px;
+    border: -5px;
+}

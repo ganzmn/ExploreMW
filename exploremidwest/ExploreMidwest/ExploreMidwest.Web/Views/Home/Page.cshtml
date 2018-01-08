@@ -1,0 +1,10 @@
+﻿@model ExploreMidwest.Model.Page
+
+@{
+    ViewBag.Title = "Page";
+}
+
+<h2>@Model.Title</h2>
+@Html.Raw(Model.Body)
+@Html.HiddenFor(m => m.PageId)
+

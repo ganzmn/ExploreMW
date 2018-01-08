@@ -1,0 +1,27 @@
+﻿@model ExploreMidwest.Model.DeleteManager
+
+@{
+    ViewBag.Title = "DeleteManager";
+}
+
+<h2>Delete A Manager</h2>
+
+<div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Manager Name</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter Manager Name" })
+                @Html.ValidationMessageFor(m => m.Name)
+                <br />
+
+                <button class="btn btn-md btn-danger">Cancel</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-md btn-primary">Delete</button>&nbsp;&nbsp;
+                <br />
+
+                <br />
+            </div>
+        }
+    </div>
+</div>

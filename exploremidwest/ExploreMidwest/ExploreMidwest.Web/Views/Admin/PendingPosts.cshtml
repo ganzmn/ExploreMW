@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ExploreMidwest.Model.Blog>
+
+@{
+    ViewBag.Title = "Pending Posts";
+}
+
+<div class="col-xs-offset-1 col-xs-10">
+    <h2>Pending Posts</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="pgBody" width="50%">
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td width="10%">
+                    @Html.DisplayFor(modelItem => item.Date.Day) /
+                    @Html.DisplayFor(modelItem => item.Date.Month) /
+                    @Html.DisplayFor(modelItem => item.Date.Year)
+                </td>
+                <td width="10%">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                @Html.HiddenFor(modelItem => item.IsFinished)
+                @Html.HiddenFor(modelItem => item.IsDeleted)
+                <td width="10%">
+                    @Html.ActionLink("Publish", "PublishBlog", "Admin", new { id = item.BlogId }, "") |
+                    @Html.ActionLink("Edit", "EditBlog", "Manager", new { id = item.BlogId }, "") |
+                    @Html.ActionLink("Delete", "DeleteBlog", "Admin", new { id = item.BlogId }, "")
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
